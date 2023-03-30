@@ -1,38 +1,17 @@
 package MeusKost;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Set up the WebDriver
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
 
-        try {
-            // Navigate to the website
-            driver.get("https://elektrihind.ee/borsihind/");
+        UserInput input = new UserInput();
+        Scraper scraper = new Scraper();
 
-            //selle peaks asendama WebDriverWait-iga koos ExpectedConditions
-            Thread.sleep(5000);
+        input.ask("Mis hinnast alates sa elektrit osta tahad? (senti/kWh)");
 
-            // Locate the element containing the electricity price
-            WebElement priceElement = driver.findElement(By.cssSelector(".price.ng-binding"));
+        scraper.scrape(input.retrieve());
 
-            // Extract and print the electricity price
-            String price = priceElement.getText().split(" ")[0];
-            String unit = priceElement.findElement(By.cssSelector("small.ng-binding")).getText();
-            System.out.println("Current electricity price: " + price);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // Close the WebDriver
-            driver.quit();
-        }
+
     }
 }

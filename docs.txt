@@ -1,0 +1,23 @@
+Autorid: Jan Erik Köst ja Karl-Andreas Meus
+
+Projekti eesmärk on kasutajale anda ülevaade hetkesest ja päeva keskmisest elektrihinnast ning tagasisidestada vastavalt kasutajapoolsele sisendile.
+
+
+klasside ülevaade:
+	Main
+	Scraper - tagastab elektrihinna ja keskmise/väljastab ekraanile
+	UserInput - võtab kasutaja sisendi
+		+ask
+		+retrieve
+	PriceAnalyzer - hetke/päeva kesk hinna jaoks
+		+getPriceNow
+		+getAverageToday
+
+Projekti tehes panime esmalt kokku plaani, seejärel asusime tegutsema. Projekti hoidsime GitHubis. Karl tegi Scraper&PriceAnalyzer klassid, Jan tegi UserInput meetodi ja viimistles.
+
+
+Projekti tehes tundsime puudust peamiselt heast ideest, hetkel on see alustala millegi palju suurema jaoks, kus on näiteks erinevate kütmismeetodite hinnad ning siis saab valida sobivaima.
+
+Sellegipoolest arvame, et saime praeguse hästi hakkama.
+
+
